@@ -1,4 +1,7 @@
-[fried]
-fuzz_runs = 1024
-verbosity = 3
-fuzz_max_global_rejects = 40000
+[default]
+remappings = [
+    'ds-test/=lib/ds-test/src/',
+    'solmate/=lib/solmate/src/',
+    'forge-std/=lib/forge-std/src/',
+    'test-utils/=lib/test-utils/src/'
+]
