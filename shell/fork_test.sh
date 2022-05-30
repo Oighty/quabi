@@ -1,3 +1,3 @@
 #!/bin/bash
 
-forge test --fork-url $RPC_URL -vvvv
+forge test --fork-url $RPC_URL
