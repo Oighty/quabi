@@ -11,9 +11,6 @@ mkdir my-project
 cd my-project
 forge init --template https://github.com/OlympusDAO/forge-template
 yarn build
-cp .env.example .env
-# fill it out
-vim .env
 yarn test
 ```
 
@@ -21,7 +18,7 @@ Otherwise replace `yarn build` with:
 
 ```
 git submodule update --init --recursive  ## initialize submodule dependencies
-npm install ## install development dependencies
+npm install ## install development dependencies...
 forge build
 ```
 
@@ -29,8 +26,7 @@ forge build
 
 ### Commands
 
-`yarn test` - run forge test with max verbosity
-`yarn test:f` - run forge fork test with max verbosity
+`yarn test` - run forge tests 
 
 ### Preinstalled dependencies
 
