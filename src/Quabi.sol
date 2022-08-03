@@ -13,7 +13,7 @@ library Quabi {
         string[] memory inputs = new string[](3);
         inputs[0] = "sh";
         inputs[1] = "-c";
-        inputs[2] = string(bytes.concat("./src/test/lib/quabi/jq.sh ", bytes(query), " ", bytes(path), ""));
+        inputs[2] = string(bytes.concat("./lib/quabi/src/jq.sh ", bytes(query), " ", bytes(path), ""));
         bytes memory res = vm.ffi(inputs);
 
         response = abi.decode(res, (bytes[]));
@@ -23,7 +23,7 @@ library Quabi {
         string[] memory inputs = new string[](3);
         inputs[0] = "sh";
         inputs[1] = "-c";
-        inputs[2] = string(bytes.concat("./src/test/lib/quabi/path.sh ", bytes(contractName), ".json", ""));
+        inputs[2] = string(bytes.concat("./lib/quabi/src/path.sh ", bytes(contractName), ".json", ""));
         bytes memory res = vm.ffi(inputs);
 
         path = abi.decode(res, (string));
