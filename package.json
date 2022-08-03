@@ -1,15 +1,14 @@
 {
-  "name": "forge-template",
-  "author": "OlympusDAO",
-  "version": "1.0.0",
-  "description": "A forge template",
-  "homepage": "https://github.com/OlympusDAO/forge-template#forge-template",
+  "name": "quabi",
+  "author": "Oighty",
+  "version": "0.1.0",
+  "description": "Foundry library to query contract ABI",
+  "homepage": "https://github.com/Oighty/quabi",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OlympusDAO/forge-template.git"
+    "url": "git+https://github.com/Oighty/quabi.git"
   },
   "scripts": {
-    "build": "chmod +x shell* && ./shell/full_install.sh",
     "prettier": "prettier --write 'src/**/*.sol'",
     "prettier:list": "prettier --list-different 'src/**/*.sol'",
     "prettier:check": "prettier --check 'src/**/*.sol'",
