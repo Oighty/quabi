@@ -1,54 +1,48 @@
-# Forge Template
+# Quabi
 
-A template for quickly getting started with forge.
+A Solidity library for querying contract ABI data using Foundry's `ffi` cheatcode in Forge Tests and Scripts.
+
+## Roadmap
+- [X] Function selectors
+- [X] Functions selectors that have a specific modifier
+- [ ] Errors
+- [ ] Events
+- [ ] State Variables
+- [ ] Others?
 
 ## Getting Started
 
-If using bash:
-
+Install in your forge project
 ```
-mkdir my-project
-cd my-project
-forge init --template https://github.com/OlympusDAO/forge-template
-yarn build
-yarn test
+forge install https://github.com/Oighty/quabi
 ```
 
-Otherwise replace `yarn build` with:
-
+Import Quabi and use it in your tests
 ```
-git submodule update --init --recursive  ## initialize submodule dependencies
-npm install ## install development dependencies...
-forge build
-```
-
-## Features
-
-### Commands
-
-`yarn test` - run forge tests 
-
-### Preinstalled dependencies
-
-`ds-test` for testing, `test-utils` for more test utils, `forge-std` for better cheatcode UX, and `solmate` for optimized contract implementations.
-
-### Linting
-
-Pre-configured `solhint` and `prettier-plugin-solidity`. Can be run by
-
-```
-yarn run solhint
-yarn run prettier
+import {Quabi} from "lib/quabi/src/Quabi.sol";
+...
+contract MyTest is Test {
+  using Quabi for *;
+   
+  ContractToTest internal testme;
+  ...
+  
+  bytes4[] memory selectors = getFunctions(type(ContractToTest).name);
+  bytes4[] memory authSelectors = getFunctionsWithModifier(type(ContractToTest).name, "requiresAuth");
+  
+  ...
+  
+}
 ```
 
-### CI with Github Actions
-
-Automatically run linting and tests on pull requests.
-
-### Default Configuration
-
-Including `.gitignore`, `.vscode`, `remappings.txt`
+Run your test file with the `--ffi` flag
+```
+forge test --ffi --match-contract MyTest
+```
 
 ## Acknowledgement
 
-Thanks to [Franke](https://github.com/FrankieIsLost) for the initial template.
+This project was conceived while developing some testing utilities for [OlympusDAO](https://github.com/OlympusDAO).
+
+The project is inspired by [Surl](https://github.com/memester-xyz/surl) and leveraged some of their ideas on preparing shell commands within Solidity.
+
