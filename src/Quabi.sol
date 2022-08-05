@@ -57,7 +57,20 @@ library Quabi {
         return getSelectors(query, path);
     }
 
+
+
+    /// TODO need to be able to return an array of objects from the query, requires update to the jq bash script to encode them in the bytes objects and then some way to decode them (likely provided as the first part of the encoding)
+    // function getFunctionParams(string memory contractName, bytes4 functionSelector) public returns (bytes4[] memory) {
+    //     string memory query = string(bytes.concat("'[.ast.nodes[-1].nodes[] | if .nodeType == \"FunctionDefinition\" and .kind == \"function\" and .functionSelector == \"", bytes(functionSelector), "\" then .parameters[].name else empty end ]'"));
+    //     string memory path = getPath(contractName);
+
+        
+        
+    // }
+
     /// TODO get events, errors, state variables, etc. 
+
+    
 
 
 }
