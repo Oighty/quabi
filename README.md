@@ -22,13 +22,12 @@ Import Quabi and use it in your tests
 import {Quabi} from "lib/quabi/src/Quabi.sol";
 ...
 contract MyTest is Test {
-  using Quabi for *;
    
   ContractToTest internal testme;
   ...
   
-  bytes4[] memory selectors = getFunctions(type(ContractToTest).name);
-  bytes4[] memory authSelectors = getFunctionsWithModifier(type(ContractToTest).name, "requiresAuth");
+  bytes4[] memory selectors = Quabi.getFunctions(type(ContractToTest).name);
+  bytes4[] memory authSelectors = Quabi.getFunctionsWithModifier(type(ContractToTest).name, "requiresAuth");
   
   ...
   
