@@ -34,9 +34,9 @@ contract MyTest is Test {
 }
 ```
 
-Run your test file with the `--ffi` flag
+Run your test file with the `--ffi` and `--ast` flags. `--ffi` enables external function calls and `--ast` tells forge to include the AST (which Quabi queries) in the compiler output.
 ```
-forge test --ffi --match-contract MyTest
+forge test --ast --ffi --match-contract MyTest
 ```
 
 ## Acknowledgement
